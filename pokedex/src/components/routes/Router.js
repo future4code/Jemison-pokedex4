@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom";
+import { Route , BrowserRouter , Routes } from "react-router-dom";
 import { HomePage } from "../home/Home";
 import { PokedexPage } from "../pokedex/Pokedex";
 import { DetailsPage } from "../details/Detalhes";
