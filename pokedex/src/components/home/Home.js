@@ -1,30 +1,24 @@
 import React from "react"; 
-import {useNavigate} from "react-router-dom";
 import Pokemons from "../pokemons.json"
-import { Card, Foto, Cards,  } from "../../styled";
+import { Card } from "../cards/Card";
+import { Cards  } from "../cards/Styles";
+import { Header } from "../header/Header";
+import * as C from '../routes/Coordinator'
 
 
 
 export function HomePage () {
 
-    const navigate = useNavigate();
-
-    const paginaPokedex = () => {
-    navigate("/pokedex")
-    }
+    const [backToHome, headToPokedex] = C.Coordinator()
 
     return(
         <div>
-            <p>Home - Lista de Pokemons</p>
-            <button onClick={paginaPokedex}>Ver minha POKEDEX</button>
+            <Header backToHome={backToHome} headToPokedex={headToPokedex}/>
             <Cards>
             {
                 Pokemons.map( pokemon =>{
                     return (
-                        <Card>
-                            <Foto></Foto>
-                            { pokemon.name }
-                        </Card>
+                        <Card name={pokemon.name} />
                     )
                 })
             }

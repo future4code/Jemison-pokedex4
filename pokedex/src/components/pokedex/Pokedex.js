@@ -1,20 +1,16 @@
 import React from "react" 
-import {useNavigate} from "react-router-dom"
+import { Header } from '../header/Header'
+import * as C from '../routes/Coordinator'
 
 
 
 export function PokedexPage () {
 
-const navigate = useNavigate()
-
-const paginaHome = () => {
-    navigate("/")
-  }
+    const [backToHome, headToPokedex] = C.Coordinator()
 
 return(
     <div>
-        <button onClick={paginaHome}>Voltar para lista de Pokemons</button>
-        <p>POKEDEX</p>
+        <Header backToHome={backToHome} headToPokedex={headToPokedex} />
     </div>
 )
 
