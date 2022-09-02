@@ -10,7 +10,7 @@ export function PokedexPage () {
 
 return(
     <div>
-        <Header backToHome={backToHome} headToPokedex={headToPokedex} />
+        <Header backToHome={backToHome} headToPokedex={headToPokedex} pokedexDisappear={{ display: 'none'} } />
     </div>
 )
 
