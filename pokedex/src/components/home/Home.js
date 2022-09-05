@@ -19,7 +19,7 @@ export function HomePage () {
 
     return(
         <div>
-            <Header backToHome={backToHome} headToPokedex={headToPokedex}/>
+            <Header backToHome={backToHome} headToPokedex={headToPokedex} pokedexDisappear={{ display: 'none'} } />
             <Cards>
                 {isLoading && (<p>Carregando Pokemons</p>)}
                 {!isLoading && error && (<p>Houve um erro ao carregar os pokemons. Recarregue a página.</p>)}

@@ -1,22 +1,19 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
 import Router from './components/routes/Router';
 import { baseURL } from './constants/baseURL';
 import { useRequestData} from './hooks/useRequestData'
 import { AllContexts } from './contexts/context'
 
+export const HeaderButtonContext=React.createContext()
+
 function App() {
 
-    // chamada da API que será passada como context
-    const [update, setUpdate] = useState(0)
-
-    const [pokemons, isLoading, error] = useRequestData(baseURL, {}, update)
+  const [pathValue, setPathValue] = useState(1)
 
   return (
-    <AllContexts.Provider value={{update, setUpdate, pokemons, isLoading, error}} >
+    <HeaderButtonContext.Provider value={{pathValue, setPathValue}}>
       <Router />
-    </AllContexts.Provider>
-
+    </HeaderButtonContext.Provider>
   );
 }
 
