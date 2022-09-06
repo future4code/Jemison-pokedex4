@@ -2,7 +2,7 @@ import React from 'react'
 import { BotaoDireito } from './Styles'
 import mais from '../../assets/mais.png'
 
-export function AdicionarPokemon () {
+export function DetalhesPokemon () {
 
 
 return(
