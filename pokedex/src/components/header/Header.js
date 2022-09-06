@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { HeaderButtonContext } from '../../App'
+import { HeaderButtonContext } from '../../contexts/context'
 import logo from '../../assets/logo.png'
 import pokeball from '../../assets/pokemon-icon.png'
 import remove from '../../assets/remove.png'
