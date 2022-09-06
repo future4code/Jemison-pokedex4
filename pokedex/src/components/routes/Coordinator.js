@@ -1,5 +1,5 @@
 import { useContext } from "react"
-import { HeaderButtonContext } from '../../App'
+import { HeaderButtonContext } from '../../contexts/context'
 import { useNavigate } from "react-router-dom"
 
 export const Coordinator = () => {
@@ -17,9 +17,9 @@ export const Coordinator = () => {
         navigate('/pokedex')
     }
 
-    const headToDetails = () => {
+    const headToDetails = (name) => {
         setPathValue(3)
-        navigate('/details/1')
+        navigate(`/details/${name}`)
     }
 
   return [backToHome, headToPokedex, headToDetails]

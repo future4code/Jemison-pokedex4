@@ -19,13 +19,13 @@ export const AreaDetalhes = styled.div`
     grid-row-gap: 20px; 
 `
 
-export const Front = styled.div`
+export const Front = styled.img`
     display: grid;
     grid-area: 1 / 1 / 3 / 2;
     background-color: #D9D9D9;
     border-radius: 55px;
 `
-export const Back = styled.div`
+export const Back = styled.img`
     display: grid;
     background-color: #D9D9D9;
     grid-area: 3 / 1 / 7 / 2;
