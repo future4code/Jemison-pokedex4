@@ -6,7 +6,6 @@ import { AllContexts } from "../../contexts/context"
 import { useParams } from "react-router-dom"
 import { useRequestData } from "../../hooks/useRequestData"
 import { baseURL } from "../../constants/baseURL"
-import { upload } from "@testing-library/user-event/dist/upload"
 
 
 
@@ -17,7 +16,7 @@ export function DetailsPage() {
 
     const [backToHome, headToPokedex] = C.Coordinator()
 
-    const { pokemons, pokedex, setPokedex, pathParam, setPathParam } = useContext(AllContexts)
+    const { pathParam, setPathParam } = useContext(AllContexts)
 
     useEffect(() => {
         setPathParam(params.id)
