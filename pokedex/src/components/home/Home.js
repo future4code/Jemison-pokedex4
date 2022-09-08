@@ -6,15 +6,14 @@ import * as C from '../routes/Coordinator'
 import { AllContexts } from "../../contexts/context";
 
 
-export function HomePage() {
 
-    const { pokemons, isLoading, error, pokedex, setPokedex } = useContext(AllContexts)
+export function HomePage() {
 
     const [backToHome, headToPokedex] = C.Coordinator()
 
   const { states } = useContext(AllContexts)
   
-  const pokemonList = states.pokemons &&
+  let pokemonList = states.pokemons &&
     states.pokemons.map((pokemon) => {
         return (
           <Card
