@@ -1,26 +1,26 @@
 import { useContext } from "react"
-import { HeaderButtonContext } from '../../contexts/context'
+import { AllContexts } from '../../contexts/context'
 import { useNavigate } from "react-router-dom"
 
 export const Coordinator = () => {
-    const {setPathValue} = useContext(HeaderButtonContext)
+    const { setters } = useContext(AllContexts)
 
     const navigate = useNavigate()
 
     const backToHome = () => {
-        setPathValue(1)
+        setters.setPathValue(1)
         navigate('/')
     }
 
     const headToPokedex = () => {
-        setPathValue(2)
+        setters.setPathValue(2)
         navigate('/pokedex')
     }
 
     const headToDetails = (name) => {
-        setPathValue(3)
+        setters.setPathValue(3)
         navigate(`/details/${name}`)
     }
 
-  return [backToHome, headToPokedex, headToDetails]
+  return { backToHome, headToPokedex, headToDetails }
 }

@@ -14,17 +14,15 @@ export function DetailsPage() {
 
     const params = useParams()
 
-    const [backToHome, headToPokedex] = C.Coordinator()
+    const { backToHome, headToPokedex } = C.Coordinator()
 
-    const { pathParam, setPathParam } = useContext(AllContexts)
+    const { states, setters } = useContext(AllContexts)
 
     useEffect(() => {
-        setPathParam(params.id)
+        setters.setPathParam(params.id)
     })
 
-    const [pokemon, isLoading, error] = useRequestData(`${baseURL}/${pathParam}`, {})
-
-    console.log(pokemon.moves)
+    const [pokemon, isLoading, error] = useRequestData(`${baseURL}/${states.pathParam}`, {})
 
     return (
         <div>
@@ -43,9 +41,9 @@ export function DetailsPage() {
                         {!isLoading && pokemon && pokemon.stats && pokemon.stats.map((item, index) => {
                             return (
                                 <ul key={index}>
-                                    <li>Name: {item.stat.name}</li>
-                                    <li>Base Stat: {item.base_stat}</li>
-                                    <li>Effort: {item.effort}</li>
+                                    <li>name: {item.stat.name}</li>
+                                    <li>base stat: {item.base_stat}</li>
+                                    <li>effort: {item.effort}</li>
                                 </ul>
                             )
                         })}
@@ -66,7 +64,7 @@ export function DetailsPage() {
                         {!isLoading && error && (<p>Houve um erro ao carregar as stats. Recarregue a página.</p>)}
                         {!isLoading && pokemon && pokemon.moves && pokemon.moves.slice(0, 10).map((item, index) => {
                             return (
-                                <p>Move {index + 1}: {item.move.name}</p>
+                                <p>move {index + 1}: {item.move.name}</p>
                             )
                         })}
                     </S.Moves>

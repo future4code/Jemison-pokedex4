@@ -7,7 +7,7 @@ import styled from 'styled-components'
 
 export const AreaDetalhes = styled.div`
     background-color: #0075BE;
-    height: 85vh;
+    min-height: 85vh;
     padding: 20px;
     display: grid;
     padding-top: 30px;
@@ -37,6 +37,17 @@ export const Stats = styled.div`
     grid-area: 1 / 2 / 7 / 3;
     border-radius: 55px;
     text-align: center;
+
+    h2 {
+        margin: 40px 0 0 0;
+    }
+
+    ul {
+        list-style-type: none;
+        padding: 0;
+        margin: 0;
+        height: 100%;
+    }
 `
 export const Type = styled.div`
     display: grid;
@@ -44,6 +55,10 @@ export const Type = styled.div`
     grid-area:  1 / 3 / 2 / 4;
     border-radius: 55px;
     text-align: center;
+
+    h2 {
+        font-size: 1.3rem;
+    }
 `
 export const Moves = styled.div`
     display: grid;
@@ -51,4 +66,12 @@ export const Moves = styled.div`
     grid-area:   2 / 3 / 7 / 4;
     border-radius: 55px;
     text-align: center;
+
+    h2 {
+        margin: 40px 0 20px 0;
+    }
+
+    p {
+        margin: 0;
+    }
 `

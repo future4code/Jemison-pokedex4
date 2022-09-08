@@ -1,5 +1,5 @@
 import React, { useContext } from 'react'
-import { HeaderButtonContext } from '../../contexts/context'
+import { AllContexts } from '../../contexts/context'
 import logo from '../../assets/logo.png'
 import pokeball from '../../assets/pokemon-icon.png'
 import remove from '../../assets/remove.png'
@@ -9,9 +9,7 @@ import * as S from './Styles'
 
 export const Header = (props) => {
 
-  const {pathValue} = useContext(HeaderButtonContext)
-
-  console.log(pathValue)
+  const { states } = useContext(AllContexts)
 
   const decideWhichButton = (path) => {
     if (path === 1) {
@@ -26,7 +24,7 @@ export const Header = (props) => {
   return (
     <S.HeaderJS>
             <S.LogoJS onClick={props.backToHome} type='image' className='logo' src={logo} alt='' />
-            {decideWhichButton(pathValue)}
+            {decideWhichButton(states.pathValue)}
     </S.HeaderJS>
   )
 }
