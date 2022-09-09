@@ -30,3 +30,9 @@ export const Foto = styled.input`
     background-color: #A9A9A9;
 `
 
+export const PokemonName = styled.div`
+    font-size: 0.7rem;
+    margin: 2vh 0 1vh 0;
+    text-transform: uppercase;
+    text-shadow: 1px 1px #bcbcbc;
+`

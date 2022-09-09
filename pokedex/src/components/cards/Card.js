@@ -12,7 +12,7 @@ export const Card = (props) => {
   return (
     <S.CardStyle>
         <S.Foto onClick={() => {headToDetails(props.name)}} type='image' src={props.image}></S.Foto>
-        { props.name }
+        <S.PokemonName>{ props.name }</S.PokemonName>
         <AddButton addToPokedex={props.addToPokedex} removeFromPokedex={props.removeFromPokedex} pokemon={props.pokemon}/>
         {/* <DetalhesPokemon /> */}
     </S.CardStyle>

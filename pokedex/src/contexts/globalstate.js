@@ -10,7 +10,7 @@ export const GlobalState = (props) => {
 
   // variável update, existe para dar refresh nas chamadas da API conforme existem modificações no backend. até o momento, opcional.
 
-  const [update, setUpdate] = useState(1)
+  const [update, setUpdate] = useState(0)
 
   // consumo da API
 
