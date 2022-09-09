@@ -1,5 +1,5 @@
 import React from 'react'
-import { BotaoDecidePokemon } from './cardButtons/addButton/AddButton'
+import { AddButton } from './cardButtons/addButton/AddButton'
 // import { DetalhesPokemon } from './cardButtons/detailsButton/detailsButton'
 import * as S from './Styles'
 import * as C from '../routes/Coordinator'
@@ -7,13 +7,13 @@ import * as C from '../routes/Coordinator'
 
 export const Card = (props) => {
 
-  const [backToHome, headToPokedex, headToDetails] = C.Coordinator()
+  const { headToDetails } = C.Coordinator()
 
   return (
     <S.CardStyle>
-        <S.Foto onClick={() => {headToDetails(props.name)}}></S.Foto>
-        { props.name }
-        <BotaoDecidePokemon onClick={props.addToPokedex} pokemon={props.pokemon}/>
+        <S.Foto onClick={() => {headToDetails(props.name)}} type='image' src={props.image}></S.Foto>
+        <S.PokemonName>{ props.name }</S.PokemonName>
+        <AddButton addToPokedex={props.addToPokedex} removeFromPokedex={props.removeFromPokedex} pokemon={props.pokemon}/>
         {/* <DetalhesPokemon /> */}
     </S.CardStyle>
   )

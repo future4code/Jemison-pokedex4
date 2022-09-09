@@ -4,11 +4,9 @@ import axios from 'axios'
 export const usePokemonData = (url, initialState) => {
     const [isLoading, setIsLoading] = useState(false)
     const [error, setError] = useState('')
-    const [characters, setCharacters] = useState(initialState);
+    const [pokemons, setPokemons] = useState(initialState);
 
     useEffect( () => {
-        let characterUrls = [];
-
         setIsLoading(true)
         axios.get(url)
           .then( result => {
@@ -19,7 +17,9 @@ export const usePokemonData = (url, initialState) => {
           .then( results => {
             return results.map( character => character.data);
           })
-          .then( results => setCharacters(results))
+          .then( results => {
+            setIsLoading(false) 
+            setPokemons(results) })
           .catch( error => {
             setError(error)
             console.error(error);
@@ -28,5 +28,5 @@ export const usePokemonData = (url, initialState) => {
 
 
 
-  return [isLoading, error, characters]
+  return { isLoading, error, pokemons }
 }

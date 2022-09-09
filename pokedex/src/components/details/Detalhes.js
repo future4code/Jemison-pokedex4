@@ -1,34 +1,50 @@
 import { React, useContext, useEffect } from "react"
-import { Header } from "../header/Header"
-import * as C from '../routes/Coordinator'
-import * as S from "./Styles"
 import { AllContexts } from "../../contexts/context"
+
 import { useParams } from "react-router-dom"
-import { useRequestData } from "../../hooks/useRequestData"
+
 import { baseURL } from "../../constants/baseURL"
+import { useRequestData } from "../../hooks/useRequestData"
 
+import { Header } from "../header/Header"
+import * as S from "./Styles"
 
+import * as C from '../routes/Coordinator'
+import * as F from '../onclicks/OnClickFunctions'
+
+import add from '../../assets/add.png'
+import remove from '../../assets/remove.png'
 
 
 export function DetailsPage() {
 
     const params = useParams()
 
-    const [backToHome, headToPokedex] = C.Coordinator()
+    const { backToHome, headToPokedex } = C.Coordinator()
+    const { addToPokedex, removeFromPokedex } = F.OnClickFunctions()
 
-    const { pathParam, setPathParam } = useContext(AllContexts)
+    const { states, setters } = useContext(AllContexts)
 
     useEffect(() => {
-        setPathParam(params.id)
+        setters.setPathParam(params.id)
     })
 
-    const [pokemon, isLoading, error] = useRequestData(`${baseURL}/${pathParam}`, {})
+    const [pokemon, isLoading, error] = useRequestData(`${baseURL}/${states.pathParam}`, {})
 
-    console.log(pokemon.moves)
+    const changeButton = (pkName) => {
+        const pokemonIndex = states.pokedex.findIndex((item) => { return item.name === pkName })
+        if (pokemonIndex === -1) {
+            setters.setUpdate(1)
+            return add
+        } else {
+            setters.setUpdate(2)
+            return remove
+        }
+    }
 
     return (
         <div>
-            <Header backToHome={backToHome} headToPokedex={headToPokedex} />
+            <Header backToHome={backToHome} headToPokedex={headToPokedex} changeButton={() => changeButton(states.pathParam)} addPokemon={() => addToPokedex(pokemon)} removePokemon={() => removeFromPokedex(pokemon)}/>
             {isLoading && (<p>Carregando Stats</p>)}
             {!isLoading && error && (<p>Houve um erro ao carregar as stats. Recarregue a página.</p>)}
             {!isLoading && pokemon && pokemon.sprites && (
@@ -43,22 +59,24 @@ export function DetailsPage() {
                         {!isLoading && pokemon && pokemon.stats && pokemon.stats.map((item, index) => {
                             return (
                                 <ul key={index}>
-                                    <li>Name: {item.stat.name}</li>
-                                    <li>Base Stat: {item.base_stat}</li>
-                                    <li>Effort: {item.effort}</li>
+                                    <li><b><u>{item.stat.name}</u></b></li>
+                                    <li>{item.base_stat} pts de dano</li>
+                                    <li> -{item.effort} de desgaste </li>
                                 </ul>
                             )
                         })}
                     </S.Stats>
 
                     <S.Type>
+                        <ul>
                         {isLoading && (<p>Carregando Stats</p>)}
                         {!isLoading && error && (<p>Houve um erro ao carregar as stats. Recarregue a página.</p>)}
                         {!isLoading && pokemon && pokemon.types && pokemon.types.map((item, index) => {
                             return (
-                                <h2 key={index}>Type {index + 1}: {item.type.name}</h2>
+                                <li key={index}>{item.type.name}</li>
                             )
                         })}
+                        </ul>
                     </S.Type>
                     <S.Moves>
                         <h2>Moves</h2>
@@ -66,7 +84,7 @@ export function DetailsPage() {
                         {!isLoading && error && (<p>Houve um erro ao carregar as stats. Recarregue a página.</p>)}
                         {!isLoading && pokemon && pokemon.moves && pokemon.moves.slice(0, 10).map((item, index) => {
                             return (
-                                <p>Move {index + 1}: {item.move.name}</p>
+                                <p key={index}>{item.move.name}</p>
                             )
                         })}
                     </S.Moves>

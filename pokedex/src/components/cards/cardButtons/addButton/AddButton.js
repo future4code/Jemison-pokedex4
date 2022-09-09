@@ -1,33 +1,30 @@
 import React, { useContext } from 'react'
-import { BotaoEsquerdo } from './Styles'
-import remove from '../../../../assets/remove.png'
-import * as C from '../../../routes/Coordinator'
 import { AllContexts } from '../../../../contexts/context'
+
 import add from '../../../../assets/add.png'
+import remove from '../../../../assets/remove.png'
 
-export function BotaoDecidePokemon(props) {
-    const [backToHome, headToPokedex] = C.Coordinator()
+import { BotaoEsquerdo } from './Styles'
 
-    const {pokedex} = useContext(AllContexts)
+export function AddButton(props) {
+
+    const { states } = useContext(AllContexts)
 
     const decidePokemon = (pokemon) => {
-
-        const pokemonIndex = pokedex.findIndex((item) => {
-            return item === pokemon})
-
+        const pokemonIndex = states.pokedex.findIndex((item) => { return item === pokemon })
         if (pokemonIndex === -1) {
-           
             return (
-                <BotaoEsquerdo onClick={backToHome} type='image' className='adicionar' src={add} alt='Adicionar' />
+                <BotaoEsquerdo onClick={props.addToPokedex} type='image' className='adicionar' src={add} alt='Adicionar' />
             )
         } else {
             return (
-            <BotaoEsquerdo onClick={headToPokedex} type='image' className='remover' src={remove} alt='Remover' />
+                <BotaoEsquerdo onClick={props.removeFromPokedex} type='image' className='remover' src={remove} alt='Remover' />
             )
-        } }
-        return (
-            <div>
-              {decidePokemon(props.pokemon)}
-            </div>
-        )
+        }
     }
+    return (
+        <div>
+            {decidePokemon(props.pokemon)}
+        </div>
+    )
+}
