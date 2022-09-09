@@ -5,7 +5,7 @@ Nome dos integrantes:
 - Karolina Marques de Azevedo
 - Stephany Pietra Emidio
 
-Link do Surge: https://womanly-turn.surge.sh/
+Link do Surge: https://hulking-corn.surge.sh/
 
 O que funciona:
 
@@ -32,4 +32,5 @@ O que funciona:
 
 O que não funciona: 
 - Ainda falta o segundo botão (Ver detalhes) dentro do Card da Home e da Pokedex.
+- É necessário alterar a imagem do botão de Remover para que ela tenha o mesmo estilo que a imagem do botão Adicionar.
 - Estilos ainda podem ser modificados, conforme a vontade.
