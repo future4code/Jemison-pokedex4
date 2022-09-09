@@ -21,6 +21,17 @@ export const Cards = styled.div`
     margin: 0;
     padding: 10vh 5vw;
     background-color: #0075BE;
+
+    /* Smartphones (portrait and landscape) ----------- */
+    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+        display: flex;
+        flex-direction: column;
+    }
+    /* Smartphones (portrait) ----------- */
+    @media only screen and (max-width : 320px) {
+        display: flex;
+        flex-direction: column;
+    }
 `
 export const Foto = styled.input`
     width: 100%;
