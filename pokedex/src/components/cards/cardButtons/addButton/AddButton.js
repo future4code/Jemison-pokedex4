@@ -11,7 +11,7 @@ export function AddButton(props) {
     const { states } = useContext(AllContexts)
 
     const decidePokemon = (pokemon) => {
-        const pokemonIndex = states.pokedex.findIndex((item) => { return item === pokemon })
+        const pokemonIndex = states.pokedex.findIndex((item) => { return item.name === pokemon.name })
         if (pokemonIndex === -1) {
             return (
                 <BotaoEsquerdo onClick={props.addToPokedex} type='image' className='adicionar' src={add} alt='Adicionar' />

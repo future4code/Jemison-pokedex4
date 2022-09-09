@@ -1,4 +1,4 @@
-import { React, useContext, useEffect } from "react"
+import { React, useContext, useEffect, useState } from "react"
 import { AllContexts } from "../../contexts/context"
 
 import { useParams } from "react-router-dom"
@@ -18,6 +18,8 @@ import remove from '../../assets/remove.png'
 
 export function DetailsPage() {
 
+    const [update, setUpdate] = useState(0)
+
     const params = useParams()
 
     const { backToHome, headToPokedex } = C.Coordinator()
@@ -27,24 +29,24 @@ export function DetailsPage() {
 
     useEffect(() => {
         setters.setPathParam(params.id)
-    })
+    }, [setters, params.id])
 
     const [pokemon, isLoading, error] = useRequestData(`${baseURL}/${states.pathParam}`, {})
 
     const changeButton = (pkName) => {
         const pokemonIndex = states.pokedex.findIndex((item) => { return item.name === pkName })
         if (pokemonIndex === -1) {
-            setters.setUpdate(1)
+            setUpdate(1)
             return add
         } else {
-            setters.setUpdate(2)
+            setUpdate(2)
             return remove
         }
     }
 
     return (
         <div>
-            <Header backToHome={backToHome} headToPokedex={headToPokedex} changeButton={() => changeButton(states.pathParam)} addPokemon={() => addToPokedex(pokemon)} removePokemon={() => removeFromPokedex(pokemon)}/>
+            <Header backToHome={backToHome} headToPokedex={headToPokedex} changeButton={() => changeButton(states.pathParam)} addPokemon={() => addToPokedex(pokemon)} removePokemon={() => removeFromPokedex(pokemon)} update={update} />
             {isLoading && (<p>Carregando Stats</p>)}
             {!isLoading && error && (<p>Houve um erro ao carregar as stats. Recarregue a página.</p>)}
             {!isLoading && pokemon && pokemon.sprites && (

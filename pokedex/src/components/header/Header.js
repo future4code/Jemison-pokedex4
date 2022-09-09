@@ -16,7 +16,7 @@ export const Header = (props) => {
     } else if (path === 2) {
       return <S.PokeballJS style={props.pokedexDisappear} onClick={props.headToPokedex} type='image' className='pokeball' src={pokeball} alt='' />
     } else {
-      return <S.PokeballJS style={props.pokedexDisappear} onClick={(states.update === 1 ? props.addPokemon : props.removePokemon)} type='image' className='pokeball' src={props.changeButton()} alt='' />
+      return <S.PokeballJS style={props.pokedexDisappear} onClick={(props.update === 1 ? props.addPokemon : props.removePokemon)} type='image' className='pokeball' src={props.changeButton()} alt='' />
     }
   }
 

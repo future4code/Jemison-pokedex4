@@ -17,6 +17,13 @@ export const AreaDetalhes = styled.div`
     grid-template-rows: repeat(4, 1fr);
     grid-column-gap: 20px;
     grid-row-gap: 20px; 
+
+    /* Smartphones (portrait and landscape) ----------- */
+    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+        display: flex;
+        flex-direction: column;
+        padding: 2vw;
+    }
 `
 
 export const Front = styled.img`
@@ -25,7 +32,20 @@ export const Front = styled.img`
     grid-area: 1 / 1 / 3 / 2;
     background-color: #D9D9D9;
     border-radius: 50%;
-    margin: 10% 0 0 20%;
+    margin: 5% 0 5% 20%;
+
+    /* Smartphones (portrait and landscape) ----------- */
+    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+        box-sizing: border-box;
+        width: 80%;
+        margin: 5vh auto 2.5vh auto;
+    }
+    /* iPads (portrait and landscape) ----------- */
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+        width: 60%;
+        margin-left: 10%;
+    }
+    
 `
 export const Back = styled.img`
     display: grid;
@@ -34,6 +54,18 @@ export const Back = styled.img`
     grid-area: 3 / 1 / 7 / 2;
     border-radius: 50%;
     margin: 10% 0 0 20%;
+
+    /* Smartphones (portrait and landscape) ----------- */
+    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+        box-sizing: border-box;
+        width: 80%;
+        margin: 2.5vh auto 5vh auto;
+    }
+    /* iPads (portrait and landscape) ----------- */
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+        width: 60%;
+        margin-left: 10%;
+    }
 
 `
 export const Stats = styled.div`
@@ -63,6 +95,31 @@ export const Stats = styled.div`
         margin-top: 1.5vh;
         text-shadow: 1px 1px #bcbcbc;
     }
+
+    /* Smartphones (portrait and landscape) ----------- */
+    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 90%;
+
+        h2 {
+            margin: 4vh 0;
+        }
+
+        ul {
+            margin: 3vh 0vw;
+            height: 100%;
+        }
+
+        ul li {
+            font-size: 0.7rem;
+        }
+    }
+    /* Smartphones (portrait) ----------- */
+    @media only screen and (max-width : 320px) {
+        width: 100%;
+    }
 `
 export const Type = styled.div`
     display: grid;
@@ -85,6 +142,33 @@ export const Type = styled.div`
         font-size: 1rem;
         text-shadow: 1px 1px #bcbcbc;
     }
+
+    /* Smartphones (portrait and landscape) ----------- */
+    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+        margin: 0 auto;
+        width: 90%;
+    }
+    /* Smartphones (portrait) ----------- */
+    @media only screen and (max-width : 320px) {
+        width: 100%;
+    }
+    /* iPads (portrait and landscape) ----------- */
+    @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+        width: 100%;
+        margin-top: 5vh;
+        height: 40px;
+        ul {
+            width: 30%;
+            margin: 0 auto;
+            padding: 0;
+            justify-content: space-evenly;
+        }
+
+        ul li {
+            font-size: 0.7rem;
+            padding: 0 15px;
+        }
+    }
 `
 export const Moves = styled.div`
     display: grid;
@@ -103,5 +187,27 @@ export const Moves = styled.div`
         margin: 0;
         //margin-top: 1.5vh;
         text-shadow: 1px 1px #bcbcbc;
+    }
+
+    /* Smartphones (portrait and landscape) ----------- */
+    @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+        display: flex;
+        flex-direction: column;
+        margin: 0 auto;
+        width: 90%;
+
+        h2 {
+            margin: 4vh 0;
+        }
+
+        p {
+            font-size: 0.7rem;
+            padding-bottom: 1.5vh;
+            margin-bottom: 1.5vh;
+        }
+    }
+    /* Smartphones (portrait) ----------- */
+    @media only screen and (max-width : 320px) {
+        width: 100%;
     }
 `

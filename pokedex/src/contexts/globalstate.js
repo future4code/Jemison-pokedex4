@@ -8,10 +8,6 @@ import { usePokemonData } from "../hooks/usePokemonData";
 
 export const GlobalState = (props) => {
 
-  // variável update, existe para dar refresh nas chamadas da API conforme existem modificações no backend. até o momento, opcional.
-
-  const [update, setUpdate] = useState(0)
-
   // consumo da API
 
   const { isLoading, error, pokemons } = usePokemonData(baseURL, [])
@@ -28,8 +24,8 @@ export const GlobalState = (props) => {
 
   // organização do globalState
   
-    const states = { update, pokedex, pathValue, pathParam, isLoading, error, pokemons };
-    const setters = { setUpdate, setPokedex, setPathValue, setPathParam };
+    const states = { pokedex, pathValue, pathParam, isLoading, error, pokemons };
+    const setters = { setPokedex, setPathValue, setPathParam };
   
     return (
       <AllContexts.Provider value={{ states, setters }}>
