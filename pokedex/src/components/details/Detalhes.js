@@ -12,7 +12,7 @@ import * as S from "./Styles"
 import * as C from '../routes/Coordinator'
 import * as F from '../onclicks/OnClickFunctions'
 
-import add from '../../assets/add.png'
+import add from '../../assets/plus.png'
 import remove from '../../assets/remove.png'
 
 

@@ -2,7 +2,7 @@ import React, { useContext } from 'react'
 import { AllContexts } from '../../../../contexts/context'
 
 import add from '../../../../assets/add.png'
-import remove from '../../../../assets/remove.png'
+import remove from '../../../../assets/ff-remove.png'
 
 import { BotaoEsquerdo } from './Styles'
 
