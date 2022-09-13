@@ -47,3 +47,9 @@ export const PokemonName = styled.div`
     text-transform: uppercase;
     text-shadow: 1px 1px #bcbcbc;
 `
+
+export const Botoes = styled.div`
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
+`
